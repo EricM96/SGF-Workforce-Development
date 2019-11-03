@@ -57,10 +57,10 @@ Android Simulator or phone
 ![alt text](https://github.com/EricM96/SGF-Workforce-Development/raw/master/screenshots/location.png "location")
 
 ### Jobs
-![alt text](https://github.com/EricM96/SGF-Workforce-Development/raw/master/screenshots/jobs.png "Logo Title Text 1")
+![alt text](https://github.com/EricM96/SGF-Workforce-Development/raw/master/screenshots/jobs.png "jobs")
 
 ### Settings
 ![alt text](https://github.com/EricM96/SGF-Workforce-Development/raw/master/screenshots/settings.png   "settings")
 
-### Job DetailsInline-style: 
+### Job Details
 ![alt text](https://github.com/EricM96/SGF-Workforce-Development/raw/master/screenshots/jobdetails.png "job details")

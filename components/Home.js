@@ -24,7 +24,7 @@ export default class FlexDirectionBasics extends Component {
 
     render() {
         return (
-          <View>
+          <View style={styles.view}>
             <TouchableOpacity onPress={() => {
               console.log('Here'); 
               this.props.navigation.navigate('Tabs', {})
@@ -46,7 +46,15 @@ export default class FlexDirectionBasics extends Component {
 var styles = StyleSheet.create({
     img: {  width: 300, 
             height: 100,
-            alignContent:'space-around'}
+            justifyContent: 'center',
+            alignSelf: 'center',
+          },
+    view: {
+      flex: 1, 
+      alignContent: 'center',
+      justifyContent: 'center',
+
+    }
     
 });
 

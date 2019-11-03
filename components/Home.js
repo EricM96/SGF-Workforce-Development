@@ -7,7 +7,11 @@ export default class FlexDirectionBasics extends Component {
   static navigationOptions = ({ navigation }) => {
     return {
       title: '',
-      backgroundColor: '#ffffff'
+      
+      headerStyle: {
+        backgroundColor: '#ffffff',
+        opacity: 0,
+      }
     }
   }
     componentDidMount() {

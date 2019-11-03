@@ -1,31 +1,66 @@
 import * as React from 'react';
-import {  View, StyleSheet, Text } from 'react-native';
+import {  View, ScrollView, StyleSheet, Text, FlatList, TextInput } from 'react-native';
 import MapView from 'react-native-maps';
 import { Marker } from 'react-native-maps';
 import TextButton from './TextButton'
-import Deck from './Deck.js'
 import { connect } from 'react-redux'
-
-state = {
-};
+import { red, black, white, lightBlue, lightGray } from '../utils/colors.js'
+import { MaterialIcons } from '@expo/vector-icons'
+import { fetchJobs } from '../utils/api'
 
 
 class Jobs extends React.Component {
+  state = {
+    jobs: []
+  }
+  
+  async componentDidMount() {
+    const jobs =  await fetchJobs();
+    this.setState({jobs: jobs.data});
+  }
+
   render() {
     return (
       <View style={styles.container}>
-        <Text style={styles.paragraph}>
-          Pan, zoom, and tap on the map!
-        </Text>
+        <View style={styles.topView}>
+          <TextInput
+            value={text}
+            style={{ height: 50, flex: 6, borderColor: lightGray, borderWidth: 1, fontSize: 18 }}
+            placeholder="Search"
+            onChangeText={this.handleChange}
+          />
+          <MaterialIcons
+            name="settings"
+            color="black"
+            size={35}
+            style={{flex: 1, alignSelf: 'center'}}
+          />
+        </View>
+
+        <View style={styles.middleView}>
+        <FlatList
+          data={this.state.jobs}
+          showsVerticalScrollIndicator={false}
+          renderItem={({ item }) =>
+            <View style={styles.flatview}>
+              <Text style={styles.title}
+                >{item.jobtitle}
+              </Text>
+              <Text style={styles.company}>
+                {item.company}
+              </Text>
+              <Text style={styles.description}>
+              {item.description}
+            </Text>
+            </View>
+          }
+          keyExtractor={item => item.id}
+        />
+        </View>
         
-        {
-            this.props.mapRegion === null ?
-            <Text>Map region doesn't exist.</Text> :
-            <Text>Map region does exist.</Text>
-        }
-        
+        <View  style={styles.bottomView}>
         <MapView
-        style={{ alignSelf: 'stretch', height: 400 }}
+        style={{ alignSelf: 'stretch', height: 300 }}
         initialRegion={{
           latitude: this.props.location.coords.latitude,
           longitude: this.props.location.coords.longitude,
@@ -39,6 +74,8 @@ class Jobs extends React.Component {
             description="This is where I am."
           />
         </MapView>
+        </View>
+
       </View>
         
     );
@@ -48,17 +85,25 @@ class Jobs extends React.Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    alignItems: 'stretch',
-    justifyContent: 'space-between',
-    padding: 24
+    alignItems: 'stretch'
   },
   bottomView: {
-    flex: 4,
-    justifyContent: 'flex-end'
+    flex: 3,
+    borderBottomColor: 'gray',
+    borderBottomWidth: 1
+  },
+  middleView: {
+    flex: 6,
+    borderTopColor: 'gray',
+    borderBottomColor: 'gray',
+    borderTopWidth: 1,
+    borderBottomWidth: 1
   },
   topView: {
-    flex: 6,
-    justifyContent: 'flex-start'
+    flex: 1,
+    display: 'flex',
+    alignContent: 'stretch',
+    flexDirection: 'row'
   },
   addCard: {
     padding: 5,
@@ -67,12 +112,36 @@ const styles = StyleSheet.create({
   text: {
     fontSize: 14,
     textAlign: 'center',
+  },
+  description: {
+    color: white,
+    textAlign: 'center',
+    fontSize: 12
+  },
+    company: {
+    color: white,
+    textAlign: 'center',
+    fontSize: 18
+  },
+  title: {
+    textAlign: 'center',
+    backgroundColor: white,
+    backgroundColor: lightGray,
+    color: white,
+    fontSize: 28
+  },
+  header: {
+    fontSize: 30
+  }, 
+  flatview: {
+    backgroundColor: lightGray,
+    borderTopColor: 'white',
+    borderTopWidth: 1
   }
 });
 
 function mapStateToProps({},{ navigation }) {
   const location = navigation.getParam('location')
-  console.log("The location is " + JSON.stringify(location))
   return { 
     location,
     hasLocationPermissions: true,
@@ -81,7 +150,3 @@ function mapStateToProps({},{ navigation }) {
 }
 
 export default connect(mapStateToProps)(Jobs)
-
-/*
-
-*/

@@ -3,6 +3,7 @@ import { Notifications, } from 'expo'
 import * as Permissions from 'expo-permissions';
 
 const NOTIFICATION_KEY = 'NOTIFICATION_KEY'
+const LOCATION_KEY = 'LOCATION_KEY'
 
 export function clearLocalNotifications() {
   return AsyncStorage.removeItem(NOTIFICATION_KEY)
@@ -57,4 +58,5 @@ export function setLocalNotification() {
           })
       }
     })
+
 }

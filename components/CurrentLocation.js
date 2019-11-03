@@ -34,7 +34,7 @@ class CurrentLocation extends React.Component {
     return (
       <KeyboardAvoidingView behavior="padding" style={styles.container}>
   
-        <Text style={styles.text}>Set Location For Job Search</Text>
+        <Text style={styles.title}>Set Location For Job Search</Text>
         <TextButton onPress={this.getLocationAsync}>
           Use My Current Location
         </TextButton>
@@ -107,6 +107,11 @@ const styles = StyleSheet.create({
     borderBottomColor: 'black',
     borderBottomWidth: 1,
     padding: 5
+  },
+  title: {
+    fontSize: 24,
+    alignSelf: 'center',
+    borderWidth: 2
   }
 })
 

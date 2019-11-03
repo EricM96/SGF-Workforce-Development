@@ -14,3 +14,18 @@ export function getInitialData()  {
       return(value)
     }
 }
+
+
+const URI = 'https://sgf-workforce-development.herokuapp.com';
+
+export async function fetchJobs() {
+        try {
+                let response = await fetch(URI + '/jobs/5');
+                let responseJsonData = await response.json();
+                return responseJsonData;
+            }
+        catch(e) {
+            console.log(e)
+        }
+    }
+

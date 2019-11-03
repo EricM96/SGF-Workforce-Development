@@ -84,7 +84,8 @@ const MainStack = createStackNavigator({
     screen: Tabs
   },
   Jobs: {
-    screen: Jobs
+    screen: Jobs,
+    title: 'My Jobs'
   },
   AddCard: {
     screen: AddCard
@@ -92,7 +93,20 @@ const MainStack = createStackNavigator({
   ShowCards: {
     screen: ShowCards
   }
-
+},
+{
+  defaultNavigationOptions: {
+    title: 'Portal To Work',
+    headerTintColor: 'white',
+    headerStyle: {
+      backgroundColor: 'purple',
+      height: 20
+    },
+    headerTitleStyle: {
+      alignSelf: 'center',
+      flex: 1
+    }
+  }
 });
 
 const Container = createAppContainer(MainStack)
@@ -110,7 +124,7 @@ export default class App extends React.Component {
     return (
       <Provider store={store}>
         <View style={styles.container}>
-          <UdaciStatusBar backgroundColor={purple} barStyle="light-content" />
+          
           <Container />
         </View>
       </Provider>

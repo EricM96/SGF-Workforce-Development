@@ -6,21 +6,21 @@ import { createStore } from 'redux'
 import { Provider } from 'react-redux'
 
 
-
 // You can import from local files
 import CreateDeck from './components/CreateDeck';
 import Settings from './components/Settings';
 import Jobs from './components/Jobs';
-import DeckTop from './components/DeckTop';
+import Home from './components/Home';
 import DeckList from './components/DeckList';
 import CurrentLocation from './components/CurrentLocation';
 import ShowCards from './components/ShowCards';
 import { FontAwesome, Ionicons } from '@expo/vector-icons'
-import { purple, white } from './utils/colors'
+import { purple, white, orange } from './utils/colors'
 import reducer from './reducers'
 import middleware from './middleware'
 import { saveData } from './utils/api'
 import { setLocalNotification } from './utils/helpers'
+import Home from './components/Home';
 
 // or any pure javascript modules available in npm
 
@@ -80,6 +80,9 @@ const Tabs = createBottomTabNavigator({
   })
 
 const MainStack = createStackNavigator({
+  Home: {
+    screen: Home
+  },
   Tabs: {
     screen: Tabs
   },
@@ -88,9 +91,6 @@ const MainStack = createStackNavigator({
   },
   Settings: {
     screen: Settings
-  },
-  ShowCards: {
-    screen: ShowCards
   }
 },
 {
@@ -123,7 +123,6 @@ export default class App extends React.Component {
     return (
       <Provider store={store}>
         <View style={styles.container}>
-          
           <Container />
         </View>
       </Provider>

@@ -1,10 +1,1 @@
-{
-  "expoServerPort": 19000,
-  "packagerPort": 19001,
-  "packagerPid": 4560,
-  "expoServerNgrokUrl": "https://2t-qhw.anonymous.sgf-workforce-development.exp.direct",
-  "packagerNgrokUrl": "https://packager.2t-qhw.anonymous.sgf-workforce-development.exp.direct",
-  "ngrokPid": 7396,
-  "webpackServerPort": null,
-  "devToolsPort": 19002
-}
+{}

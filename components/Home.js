@@ -1,9 +1,15 @@
 import React, { Component} from 'react'
-import { Image, StyleSheet } from 'react-native';
+import { Image, StyleSheet, View, TouchableOpacity } from 'react-native';
 const FIVE_SECONDS = 5000;
 
 
 export default class FlexDirectionBasics extends Component {
+  static navigationOptions = ({ navigation }) => {
+    return {
+      title: '',
+      backgroundColor: '#ffffff'
+    }
+  }
     componentDidMount() {
         // When mounted, wait one second, then navigate to App
         setTimeout(() => {
@@ -18,15 +24,21 @@ export default class FlexDirectionBasics extends Component {
 
     render() {
         return (
-                <Image
-                    style={styles.img}
-                    source={require('../assets/icons/Portal_to_Work.png')}
-                    alt="Portal to Work Logo"
-                    resizeMode= 'contain'
-                    enum= 'center'
-                    background= '00455c'
-
-        />
+          <View>
+            <TouchableOpacity onPress={() => {
+              console.log('Here'); 
+              this.props.navigation.navigate('Tabs', {})
+              }}>
+              <Image
+                  style={styles.img}
+                  source={require('../assets/icons/Portal_to_Work.png')}
+                  alt="Portal to Work Logo"
+                  resizeMode= 'contain'
+                  enum= 'center'
+                  background= '00455c'
+              />
+            </TouchableOpacity>
+          </View>
         )
     }
 }

@@ -111,7 +111,7 @@ class Settings extends React.Component {
             </View>
 
             <View style={styles.labelPickerPair}>
-                <Text style={styles.label}> Show Walking Distance: {this.state.walk+''} </Text>
+                <Text style={styles.label}> Show Walking Distance: {this.state.walk ? 'on' : 'off'} </Text>
                 <Switch
                     value={this.state.walk}
                     onValueChange={(value) => {
@@ -129,7 +129,7 @@ class Settings extends React.Component {
             </View>
 
             <View style={styles.labelPickerPair}>
-                <Text style={styles.label}> Show Busing Distance: {this.state.bus+''} </Text>
+                    <Text style={styles.label}> Show Busing Distance: {this.state.bus ? 'on' : 'off'} </Text>
                 <Switch
                     value={this.state.bus}
                     onValueChange={(value) => {
@@ -147,7 +147,7 @@ class Settings extends React.Component {
             </View>
 
             <View style={styles.labelPickerPair}>
-                <Text style={styles.label}> Show Busing Driving: {this.state.drive + ''} </Text>
+                    <Text style={styles.label}> Show Driving Distance: {this.state.drive ? 'on' : 'off'} </Text>
                 <Switch
                     value={this.state.drive}
                     onValueChange={(value) => {

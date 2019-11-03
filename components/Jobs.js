@@ -3,9 +3,10 @@ import {  View, ScrollView, StyleSheet, Text, FlatList, TextInput } from 'react-
 import MapView from 'react-native-maps';
 import { Marker } from 'react-native-maps';
 import { connect } from 'react-redux'
-import { white,  lightGray } from '../utils/colors.js'
+import { white,  black, lightGray, darkBlue } from '../utils/colors.js'
 import { MaterialIcons } from '@expo/vector-icons'
 import { fetchJobs } from '../utils/api'
+import { TouchableOpacity } from 'react-native-gesture-handler';
 
 
 class Jobs extends React.Component {
@@ -49,15 +50,18 @@ class Jobs extends React.Component {
           showsVerticalScrollIndicator={false}
           renderItem={({ item }) =>
             <View style={styles.flatview}>
-              <Text style={styles.title}
-                >{item.jobtitle}
+              <TouchableOpacity
+                onPress={() => this.props.navigation.navigate('JobDetails', {jobDetails: item})}>
+                <Text style={styles.title}
+                  >{item.jobtitle}
+                </Text>
+                <Text style={styles.company}>
+                  {item.company}
+                </Text>
+                <Text style={styles.description}>
+                {item.description}
               </Text>
-              <Text style={styles.company}>
-                {item.company}
-              </Text>
-              <Text style={styles.description}>
-              {item.description}
-            </Text>
+            </TouchableOpacity>
             </View>
           }
           keyExtractor={item => item.id}
@@ -120,28 +124,27 @@ const styles = StyleSheet.create({
     textAlign: 'center',
   },
   description: {
-    color: white,
+    color: black,
     textAlign: 'center',
     fontSize: 12
   },
     company: {
-    color: white,
+    color: black,
     textAlign: 'center',
     fontSize: 18
   },
   title: {
     textAlign: 'center',
     backgroundColor: white,
-    backgroundColor: lightGray,
-    color: white,
+    color: darkBlue,
     fontSize: 28
   },
   header: {
     fontSize: 30
   }, 
   flatview: {
-    backgroundColor: lightGray,
-    borderTopColor: 'white',
+    backgroundColor: black,
+    borderTopColor: lightGray,
     borderTopWidth: 1
   }
 });

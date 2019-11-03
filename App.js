@@ -20,7 +20,8 @@ import reducer from './reducers'
 import middleware from './middleware'
 import { saveData } from './utils/api'
 import { setLocalNotification } from './utils/helpers'
-import Home from './components/Home';
+import {darkBlue} from './utils/colors'; 
+import JobDetails from './components/JobDetails';
 
 // or any pure javascript modules available in npm
 
@@ -64,10 +65,10 @@ const Tabs = createBottomTabNavigator({
     },
     tabBarOptions: {
       showLabel: false,
-      activeTintColor: Platform.OS === 'ios' ? purple : white,
+      activeTintColor: Platform.OS === 'ios' ? darkBlue : white,
       style: {
         height: 56,
-        backgroundColor: Platform.OS === 'ios' ? white : purple,
+        backgroundColor: Platform.OS === 'ios' ? white : darkBlue,
         shadowColor: 'rgba(0, 0, 0, 0.24)',
         shadowOffset: {
           width: 0,
@@ -91,6 +92,9 @@ const MainStack = createStackNavigator({
   },
   Settings: {
     screen: Settings
+  },
+  JobDetails: {
+    screen: JobDetails
   }
 },
 {
@@ -98,7 +102,7 @@ const MainStack = createStackNavigator({
     title: 'Portal To Work',
     headerTintColor: 'white',
     headerStyle: {
-      backgroundColor: 'purple',
+      backgroundColor: darkBlue,
       height: 20
     },
     headerTitleStyle: {

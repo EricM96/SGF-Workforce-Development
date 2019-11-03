@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { Text, View, StyleSheet, KeyboardAvoidingView, TextInput } from 'react-native';
 import TextButton from './TextButton'
-import { red } from '../utils/colors.js'
+import { red, darkBlue } from '../utils/colors.js'
 import { connect } from 'react-redux'
 import * as Permissions from 'expo-permissions'
 import * as Location from 'expo-location'
@@ -39,7 +39,8 @@ class CurrentLocation extends React.Component {
     text=''
     return (
       <KeyboardAvoidingView behavior="padding" style={styles.container}>
-        <TextButton onPress={this.getLocationAsync}>
+        <TextButton onPress={this.getLocationAsync}
+                    style={styles.button}>
           Use My Current Location
         </TextButton>
         <View style={styles.separator}>
@@ -75,7 +76,8 @@ class CurrentLocation extends React.Component {
             placeholder="Zip"
             onChangeText={this.handleChange}
           />
-          <TextButton onPress={this.handleSubmit}>
+          <TextButton onPress={this.handleSubmit}
+                      style={styles.button}>
             Use This Address
           </TextButton>
         </View>
@@ -116,6 +118,9 @@ const styles = StyleSheet.create({
     fontSize: 24,
     alignSelf: 'center',
     borderWidth: 2
+  },
+  button: {
+    backgroundColor: darkBlue
   }
 })
 

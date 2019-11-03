@@ -2,9 +2,8 @@ import * as React from 'react';
 import {  View, ScrollView, StyleSheet, Text, FlatList, TextInput } from 'react-native';
 import MapView from 'react-native-maps';
 import { Marker } from 'react-native-maps';
-import TextButton from './TextButton'
 import { connect } from 'react-redux'
-import { red, black, white, lightBlue, lightGray } from '../utils/colors.js'
+import { white,  lightGray } from '../utils/colors.js'
 import { MaterialIcons } from '@expo/vector-icons'
 import { fetchJobs } from '../utils/api'
 
@@ -17,6 +16,11 @@ class Jobs extends React.Component {
   async componentDidMount() {
     const jobs =  await fetchJobs();
     this.setState({jobs: jobs.data});
+  }
+
+  goToSettings() {
+    this.props.navigation.navigate(
+      'Settings', { })
   }
 
   render() {
@@ -34,6 +38,7 @@ class Jobs extends React.Component {
             color="black"
             size={35}
             style={{flex: 1, alignSelf: 'center'}}
+            onPress={this.goToSettings}
           />
         </View>
 

@@ -15,7 +15,6 @@ import DeckTop from './components/DeckTop';
 import DeckList from './components/DeckList';
 import CurrentLocation from './components/CurrentLocation';
 import ShowCards from './components/ShowCards';
-import AddCard from './components/AddCard';
 import { FontAwesome, Ionicons } from '@expo/vector-icons'
 import { purple, white } from './utils/colors'
 import reducer from './reducers'
@@ -85,8 +84,7 @@ const MainStack = createStackNavigator({
     screen: Tabs
   },
   Jobs: {
-    screen: Jobs,
-    title: 'My Jobs'
+    screen: Jobs
   },
   Settings: {
     screen: Settings

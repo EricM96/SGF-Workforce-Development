@@ -2,8 +2,9 @@ import React, { Component} from 'react';
 import { Text, View, StyleSheet, Picker, Switch } from 'react-native'; 
 import { AsyncStorage } from 'react-native';
 import { ScrollView } from 'react-native-gesture-handler';
+import { connect } from 'react-redux'
 
-export default class Settings extends Component {
+class Settings extends Component {
     constructor() {
         super();
 
@@ -179,4 +180,11 @@ const styles = StyleSheet.create({
         flex: 1 
     }
 });
+
+function mapStateToProps({},{ navigation }) {
+    return {
+    }
+  }
+
+export default connect(mapStateToProps)(Settings)
 

@@ -1,10 +1,10 @@
 {
   "expoServerPort": 19000,
   "packagerPort": 19001,
-  "packagerPid": 6596,
-  "expoServerNgrokUrl": "https://tm-f3n.anonymous.udacity-flashcards-project.exp.direct",
-  "packagerNgrokUrl": "https://packager.tm-f3n.anonymous.udacity-flashcards-project.exp.direct",
-  "ngrokPid": 2264,
+  "packagerPid": 15388,
+  "expoServerNgrokUrl": "https://nr-y78.anonymous.sgf-workforce-development.exp.direct",
+  "packagerNgrokUrl": "https://packager.nr-y78.anonymous.sgf-workforce-development.exp.direct",
+  "ngrokPid": 14088,
   "webpackServerPort": null,
-  "devToolsPort": 19002
+  "devToolsPort": 19003
 }

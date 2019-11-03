@@ -19,6 +19,7 @@ import reducer from './reducers'
 import middleware from './middleware'
 import { saveData } from './utils/api'
 import { setLocalNotification } from './utils/helpers'
+import Home from './components/Home';
 
 // or any pure javascript modules available in npm
 
@@ -68,7 +69,7 @@ const Tabs = createBottomTabNavigator({
 
 const MainStack = createStackNavigator({
   Tabs: {
-    screen: DeckTop
+    screen: Home
   },
   DeckTop: {
     screen: DeckTop

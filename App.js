@@ -6,7 +6,6 @@ import { createStore } from 'redux'
 import { Provider } from 'react-redux'
 
 
-
 // You can import from local files
 import CreateDeck from './components/CreateDeck';
 import DeckTop from './components/DeckTop';
@@ -14,7 +13,7 @@ import DeckList from './components/DeckList';
 import ShowCards from './components/ShowCards';
 import AddCard from './components/AddCard';
 import { FontAwesome, Ionicons } from '@expo/vector-icons'
-import { purple, white } from './utils/colors'
+import { purple, white, orange } from './utils/colors'
 import reducer from './reducers'
 import middleware from './middleware'
 import { saveData } from './utils/api'
@@ -98,7 +97,7 @@ export default class App extends React.Component {
     return (
       <Provider store={store}>
         <View style={styles.container}>
-          <UdaciStatusBar backgroundColor={purple} barStyle="light-content" />
+          <UdaciStatusBar backgroundColor={white} barStyle="light-content" height='1'/>
           <Container />
         </View>
       </Provider>

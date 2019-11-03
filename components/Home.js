@@ -1,6 +1,6 @@
 import React, { Component} from 'react'
 import { Image, StyleSheet, View, TouchableOpacity } from 'react-native';
-const FIVE_SECONDS = 5000;
+const THREE_SECONDS = 3000;
 
 
 export default class FlexDirectionBasics extends Component {
@@ -17,13 +17,8 @@ export default class FlexDirectionBasics extends Component {
     componentDidMount() {
         // When mounted, wait one second, then navigate to App
         setTimeout(() => {
-          // Components that are placed inside a React Navigation
-          // navigator will receive the `navigation` prop.
-          // It's main usage is to trigger navigation events.
-          // Right here we're telling it to navigate to the route
-          // with the name 'App'.
-          this.props.navigation.navigate('App');
-        }, FIVE_SECONDS);
+          this.props.navigation.navigate('Tabs');
+        }, THREE_SECONDS);
       }
 
     render() {

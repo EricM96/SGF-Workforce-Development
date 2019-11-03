@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { Text, View, StyleSheet, KeyboardAvoidingView, TextInput } from 'react-native';
 import TextButton from './TextButton'
-import { red, darkBlue } from '../utils/colors.js'
+import { red, darkBlue, white, black } from '../utils/colors.js'
 import { connect } from 'react-redux'
 import * as Permissions from 'expo-permissions'
 import * as Location from 'expo-location'
@@ -39,6 +39,10 @@ class CurrentLocation extends React.Component {
     text=''
     return (
       <KeyboardAvoidingView behavior="padding" style={styles.container}>
+        <Text
+          style={styles.title}>
+            Set Location
+        </Text>
         <TextButton onPress={this.getLocationAsync}
                     style={styles.button}>
           Use My Current Location
@@ -91,10 +95,10 @@ class CurrentLocation extends React.Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    marginTop: 50,
-    justifyContent: 'center',
+    //marginTop: 50,
+    // justifyContent: 'center',
     alignItems: 'stretch',
-    backgroundColor: '#F5FCFF',
+    backgroundColor: '#F5FCFF', 
   },
   flatview: {
     justifyContent: 'center',
@@ -116,8 +120,15 @@ const styles = StyleSheet.create({
   },
   title: {
     fontSize: 24,
+    color: white, 
     alignSelf: 'center',
-    borderWidth: 2
+    textAlign: 'center', 
+    backgroundColor: darkBlue, 
+    paddingBottom: 10, 
+    borderWidth: 5,
+    borderColor: white,
+    width: 400 ,  
+
   },
   button: {
     backgroundColor: darkBlue

@@ -3,7 +3,7 @@ import { View, ScrollView, StyleSheet, Text, FlatList, TextButton } from 'react-
 import MapView from 'react-native-maps';
 import { Marker } from 'react-native-maps';
 import { connect } from 'react-redux'
-import { white, black, lightGray, darkBlue } from '../utils/colors.js'
+import { white, black, lightGray, darkBlue, red } from '../utils/colors.js'
 import { MaterialIcons } from '@expo/vector-icons'
 import { fetchJobs } from '../utils/api'
 
@@ -47,11 +47,11 @@ class JobsDetails extends React.Component {
                 </View>
             
                 <View style={styles.bottomView}>
-                    <Text style={{ height: 50, flex: 6, fontSize: 20}}>
+                    <Text style={{ height: 50, flex: 1, fontSize: 28, color: darkBlue}}>
                         {this.props.job.jobtitle}
                     </Text>
 
-                    <Text style={{ height: 50, flex: 6, fontSize: 14 }}>
+                    <Text style={{ height: 50, flex: 3, fontSize: 14, alignSelf: 'center' }}>
                         {this.props.job.description}
                     </Text>
                 </View>
@@ -71,7 +71,7 @@ const styles = StyleSheet.create({
         alignItems: 'stretch'
     },
     bottomView: {
-        flex: 3,
+        flex: 4,
         borderBottomColor: 'gray',
         borderBottomWidth: 1,
         position: 'relative',
@@ -84,7 +84,7 @@ const styles = StyleSheet.create({
         borderBottomWidth: 1
     },
     topView: {
-        flex: 5,
+        flex: 4,
         display: 'flex',
         alignContent: 'stretch',
         flexDirection: 'column',

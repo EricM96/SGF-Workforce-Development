@@ -29,13 +29,14 @@ Android Simulator or phone
 * [Node.js](https://nodejs.org/en/)
 * [Expo](https://expo.io/)
 * [MongoDb](https://www.mongodb.com/)
+* [Heroku](https://heroku.com)
 
 ## Authors
 
 * **Thomas Reese** - *Initial work* - [tomjar](https://github.com/tomjar)
-* **Doug McCullough** - *Initial work* - [tomjar](https://github.com/doug3033)
-* **Eric McCullough** - *Initial work* - [tomjar](https://github.com/EricM96)
-* **Amber Donaldson** - *Initial work* - [tomjar](https://github.com/bramberdon)
+* **Doug McCullough** - *Initial work* - [doug3033](https://github.com/doug3033)
+* **Eric McCullough** - *Initial work* - [EricM96](https://github.com/EricM96)
+* **Amber Donaldson** - *Initial work* - [bramberdon](https://github.com/bramberdon)
 
 ## License
 

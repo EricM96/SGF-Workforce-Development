@@ -9,6 +9,7 @@ import { Provider } from 'react-redux'
 
 // You can import from local files
 import CreateDeck from './components/CreateDeck';
+import Settings from './components/Settings';
 import Jobs from './components/Jobs';
 import DeckTop from './components/DeckTop';
 import DeckList from './components/DeckList';
@@ -87,8 +88,8 @@ const MainStack = createStackNavigator({
     screen: Jobs,
     title: 'My Jobs'
   },
-  AddCard: {
-    screen: AddCard
+  Settings: {
+    screen: Settings
   },
   ShowCards: {
     screen: ShowCards

@@ -4,19 +4,22 @@ import { AsyncStorage } from 'react-native';
 import { ScrollView } from 'react-native-gesture-handler';
 import { connect } from 'react-redux'
 
-class Settings extends Component {
-    constructor() {
-        super();
+class Settings extends React.Component {
+    static navigationOptions = ({navigation}) => {
+        return {
+          title: 'Settings'
+        }
+      }
 
-        this.state = {
-            ed_level: 'none', 
-            job_cat: 'no preference', 
-            tTime: 60,
-            walk: false,
-            bus: false,
-            drive: true, 
-        };
-    }
+    state = {
+        ed_level: 'none', 
+        job_cat: 'no preference', 
+        tTime: 60,
+        walk: false,
+        bus: false,
+        drive: true, 
+    };
+    
 
     render() {
         return (

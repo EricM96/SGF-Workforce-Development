@@ -8,6 +8,12 @@ import * as Location from 'expo-location'
 
 
 class CurrentLocation extends React.Component {
+  static navigationOptions = ({navigation}) => {
+    return {
+      title: 'Set Location'
+    }
+
+  }
 
   getLocationAsync = async (id, e) => {
     let { status } = await Permissions.askAsync(Permissions.LOCATION);
@@ -33,8 +39,6 @@ class CurrentLocation extends React.Component {
     text=''
     return (
       <KeyboardAvoidingView behavior="padding" style={styles.container}>
-  
-        <Text style={styles.title}>Set Location For Job Search</Text>
         <TextButton onPress={this.getLocationAsync}>
           Use My Current Location
         </TextButton>

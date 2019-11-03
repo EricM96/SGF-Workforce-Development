@@ -9,6 +9,12 @@ import { fetchJobs } from '../utils/api'
 
 
 class Jobs extends React.Component {
+  static navigationOptions = ({navigation}) => {
+    return {
+      title: 'Find Jobs'
+    }
+  }
+
   state = {
     jobs: []
   }
@@ -16,11 +22,6 @@ class Jobs extends React.Component {
   async componentDidMount() {
     const jobs =  await fetchJobs();
     this.setState({jobs: jobs.data});
-  }
-
-  goToSettings() {
-    this.props.navigation.navigate(
-      'Settings', { })
   }
 
   render() {
@@ -38,7 +39,7 @@ class Jobs extends React.Component {
             color="black"
             size={35}
             style={{flex: 1, alignSelf: 'center'}}
-            onPress={this.goToSettings}
+            onPress={() => this.props.navigation.navigate('Settings', { })}
           />
         </View>
 

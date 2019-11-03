@@ -1,20 +1,65 @@
-# Would You Rather Project
+# SGF-Workforce-Development
 
-This project can be installed by downloading from github:
+* This application is coded in React Native and is compatible with iOS and Android. This application is intended to allow local Springfield, Missouri job seekers find a job in their local area.
 
-`git clone https://github.com/doug3033/udacity-flashcards-project.git`
+## Getting Started
 
-Then install dependencies:
-`npm install`
+- Frontend available for install at 
+    - $ git clone 'https://github.com/EricM96/SGF-Workforce-Development.git'
+    - $ git checkout master
+    - $ npm install
 
-Then start the app:
-`npm start`
+- Backend server available for install
+    - $ git clone 'https://github.com/tomjar/SGF-Workforce-Development.git'
+    - $ git checkout google-api
+    - $ npm install
 
-The project takes a user to a home page where a deck of flashcards can be named and then the cards created. Alternatively, the user can tab to see a list of existing decks and start reading through the flashcards.
 
-This app has been tested on the IOS platform.
+
+### Prerequisites
+
+Visual Studio Code
+MongoDb
+Expo
+iOS Simulator or phone
+Android Simulator or phone
+
+## Built With
+* [React Native](https://facebook.github.io/react-native/)
+* [Node.js](https://nodejs.org/en/)
+* [Expo](https://expo.io/)
+* [MongoDb](https://www.mongodb.com/)
+
+## Authors
+
+* **Thomas Reese** - *Initial work* - [tomjar](https://github.com/tomjar)
+* **Doug McCullough** - *Initial work* - [tomjar](https://github.com/doug3033)
+* **Eric McCullough** - *Initial work* - [tomjar](https://github.com/EricM96)
+* **Amber Donaldson** - *Initial work* - [tomjar](https://github.com/bramberdon)
 
 ## License
-The MIT License (MIT)
-Copyright (c) 2019 Doug McCullough.
-Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions: The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+* MIT
+
+## Acknowledgments
+
+* [Hack 4 Good](https://hack4goodsgf.com/)
+* Hack 4 Good staff!
+* Everyone who showed up!
+
+## Screenshots
+
+### Home
+![alt text](https://github.com/EricM96/SGF-Workforce-Development/raw/master/screenshots/home.png "home")
+
+### Location
+![alt text](https://github.com/EricM96/SGF-Workforce-Development/raw/master/screenshots/location.png "location")
+
+### Jobs
+![alt text](https://github.com/EricM96/SGF-Workforce-Development/raw/master/screenshots/jobs.png "Logo Title Text 1")
+
+### Settings
+![alt text](https://github.com/EricM96/SGF-Workforce-Development/raw/master/screenshots/settings.png   "settings")
+
+### Job DetailsInline-style: 
+![alt text](https://github.com/EricM96/SGF-Workforce-Development/raw/master/screenshots/jobdetails.png "job details")

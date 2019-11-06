@@ -1,16 +1,16 @@
 import * as React from 'react';
-import {  View, ScrollView, StyleSheet, Text, FlatList, TextInput } from 'react-native';
+import { View, ScrollView, StyleSheet, Text, FlatList, TextInput } from 'react-native';
 import MapView from 'react-native-maps';
 import { Marker } from 'react-native-maps';
 import { connect } from 'react-redux'
-import { white,  black, lightGray, darkBlue } from '../utils/colors.js'
+import { white, black, lightGray, darkBlue } from '../utils/colors.js'
 import { MaterialIcons } from '@expo/vector-icons'
 import { fetchJobs } from '../utils/api'
 import { TouchableOpacity } from 'react-native-gesture-handler';
 
 
 class Jobs extends React.Component {
-  static navigationOptions = ({navigation}) => {
+  static navigationOptions = ({ navigation }) => {
     return {
       title: 'Find Jobs'
     }
@@ -19,10 +19,10 @@ class Jobs extends React.Component {
   state = {
     jobs: []
   }
-  
+
   async componentDidMount() {
-    const jobs =  await fetchJobs();
-    this.setState({jobs: jobs.data});
+    const jobs = await fetchJobs();
+    this.setState({ jobs: jobs.data });
   }
 
   render() {
@@ -39,55 +39,56 @@ class Jobs extends React.Component {
             name="settings"
             color="black"
             size={35}
-            style={{flex: 1, alignSelf: 'center'}}
-            onPress={() => this.props.navigation.navigate('Settings', { })}
+            style={{ flex: 1, alignSelf: 'center' }}
+            onPress={() => this.props.navigation.navigate('Settings', {})}
           />
         </View>
 
         <View style={styles.middleView}>
-        <FlatList
-          data={this.state.jobs}
-          showsVerticalScrollIndicator={false}
-          renderItem={({ item }) =>
-            <View style={styles.flatview}>
-              <TouchableOpacity
-                onPress={() => this.props.navigation.navigate('JobDetails', {jobDetails: item})}>
-                <Text style={styles.title}
+          <FlatList
+            data={this.state.jobs}
+            showsVerticalScrollIndicator={false}
+            renderItem={({ item }) =>
+              <View style={styles.flatview}>
+                <TouchableOpacity
+                  onPress={() => this.props.navigation.navigate('JobDetails', { jobDetails: item })}>
+                  <Text style={styles.title}
                   >{item.jobtitle}
-                </Text>
-                <Text style={styles.company}>
-                  {item.company}
-                </Text>
-                <Text style={styles.description}>
-                {item.description}
-              </Text>
-            </TouchableOpacity>
-            </View>
-          }
-          keyExtractor={item => item.id}
-        />
-        </View>
-        
-        <View  style={styles.bottomView}>
-        <MapView
-        style={{ alignSelf: 'stretch', height: 300 }}
-        initialRegion={{
-          latitude: this.props.location.coords.latitude,
-          longitude: this.props.location.coords.longitude,
-          latitudeDelta: 0.0922,
-          longitudeDelta: 0.0421,
-        }}
-        >
-          <Marker
-            coordinate={this.props.location.coords}
-            title="My Location"
-            description="This is where I am."
+                  </Text>
+                  <Text style={styles.company}>
+                    {item.company}
+                  </Text>
+                  <Text style={styles.description}>
+                    {item.description}
+                  </Text>
+                </TouchableOpacity>
+              </View>
+            }
+            keyExtractor={item => item.id}
           />
-        </MapView>
+        </View>
+
+        <View style={styles.bottomView}>
+          <MapView
+            style={{ alignSelf: 'stretch', height: 300 }}
+            initialRegion={{
+              latitude: this.props.location.coords.latitude,
+              longitude: this.props.location.coords.longitude,
+              latitudeDelta: 0.0922,
+              longitudeDelta: 0.0421,
+            }}
+          >
+
+            {/* <Marker
+              coordinate={this.props.location.coords}
+              title="My Location"
+              description="This is where I am."
+            /> */}
+          </MapView>
         </View>
 
       </View>
-        
+
     );
   }
 }
@@ -128,7 +129,7 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     fontSize: 12
   },
-    company: {
+  company: {
     color: black,
     textAlign: 'center',
     fontSize: 18
@@ -141,7 +142,7 @@ const styles = StyleSheet.create({
   },
   header: {
     fontSize: 30
-  }, 
+  },
   flatview: {
     backgroundColor: black,
     borderTopColor: lightGray,
@@ -149,13 +150,25 @@ const styles = StyleSheet.create({
   }
 });
 
-function mapStateToProps({},{ navigation }) {
+function mapStateToProps({ }, { navigation }) {
   const location = navigation.getParam('location')
-  return { 
-    location,
-    hasLocationPermissions: true,
-    mapRegion: { latitude: location.coords.latitude, longitude: location.coords.longitude, latitudeDelta: 0.0922, longitudeDelta: 0.0421 }
-   }
+  if (typeof location !== 'undefined' && location !== null) {
+
+    return {
+      location,
+      hasLocationPermissions: true,
+      mapRegion: { latitude: location.coords.latitude, longitude: location.coords.longitude, latitudeDelta: 0.0922, longitudeDelta: 0.0421 }
+    }
+  } else {
+    return {
+      // latitude: this.props.location.coords.latitude,
+      // longitude: this.props.location.coords.longitude,
+      // 37.1803134,-93.3113227,
+      'location': { 'coords': { 'latitude': 37.1803134, 'longitude': -93.3113227 } },
+      hasLocationPermissions: false,
+      mapRegion: { latitude: location.coords.latitude, longitude: location.coords.longitude, latitudeDelta: 0.0922, longitudeDelta: 0.0421 }
+    }
+  }
 }
 
 export default connect(mapStateToProps)(Jobs)

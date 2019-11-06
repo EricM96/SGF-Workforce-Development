@@ -8,7 +8,7 @@ import * as Location from 'expo-location'
 
 
 class CurrentLocation extends React.Component {
-  static navigationOptions = ({navigation}) => {
+  static navigationOptions = ({ navigation }) => {
     return {
       title: 'Set Location'
     }
@@ -16,35 +16,43 @@ class CurrentLocation extends React.Component {
   }
 
   getLocationAsync = async (id, e) => {
-    let { status } = await Permissions.askAsync(Permissions.LOCATION);
-    if (status !== 'granted') {
-      this.setState({
-        errorMessage: 'Permission to access location was denied',
-      });
+    let locationEnabled = await Location.hasServicesEnabledAsync();
 
+    if (locationEnabled) {
+
+      let { status } = await Permissions.askAsync(Permissions.LOCATION);
+      if (status !== 'granted') {
+        this.setState({
+          errorMessage: 'Permission to access location was denied',
+        });
+
+      }
+
+      let location = await Location.getCurrentPositionAsync({});
+      //TBD - save location!
+      console.log("Location is set!" + location.coords.longitude)
+
+
+
+      this.props.navigation.navigate(
+        'Jobs', { 'location': location })
+    } else {
+      this.props.navigation.navigate(
+        'Jobs', { 'location': { 'coords': { 'latitude': 37.1803134, 'longitude': -93.3113227 } } })
     }
-
-    let location = await Location.getCurrentPositionAsync({});
-    //TBD - save location!
-    console.log("Location is set!" + location.coords.longitude )
-   
-   
-
-   this.props.navigation.navigate(
-      'Jobs', { location: location })
   };
 
 
   render() {
-    text=''
+    text = ''
     return (
       <KeyboardAvoidingView behavior="padding" style={styles.container}>
         <Text
           style={styles.title}>
-            Set Location
+          Set Location
         </Text>
         <TextButton onPress={this.getLocationAsync}
-                    style={styles.button}>
+          style={styles.button}>
           Use My Current Location
         </TextButton>
         <View style={styles.separator}>
@@ -81,13 +89,13 @@ class CurrentLocation extends React.Component {
             onChangeText={this.handleChange}
           />
           <TextButton onPress={this.handleSubmit}
-                      style={styles.button}>
+            style={styles.button}>
             Use This Address
           </TextButton>
         </View>
-   
 
-    </KeyboardAvoidingView>
+
+      </KeyboardAvoidingView>
     );
   }
 }
@@ -98,7 +106,7 @@ const styles = StyleSheet.create({
     //marginTop: 50,
     // justifyContent: 'center',
     alignItems: 'stretch',
-    backgroundColor: '#F5FCFF', 
+    backgroundColor: '#F5FCFF',
   },
   flatview: {
     justifyContent: 'center',
@@ -120,14 +128,14 @@ const styles = StyleSheet.create({
   },
   title: {
     fontSize: 24,
-    color: white, 
+    color: white,
     alignSelf: 'center',
-    textAlign: 'center', 
-    backgroundColor: darkBlue, 
-    paddingBottom: 10, 
+    textAlign: 'center',
+    backgroundColor: darkBlue,
+    paddingBottom: 10,
     borderWidth: 5,
     borderColor: white,
-    width: 400 ,  
+    width: 400,
 
   },
   button: {

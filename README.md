@@ -14,7 +14,7 @@
 
 - Backend server available for install (NOTE: Curently is set as production on heroku, will not run locally!)
     - $ git clone 'https://github.com/tomjar/SGF-Workforce-Development.git'
-    - $ git checkout google-api
+    - $ git checkout master
     - $ npm install
     - $ node server.js 
 
